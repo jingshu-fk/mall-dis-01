@@ -1,0 +1,18 @@
+# DataSource Config
+spring:
+  datasource:
+    username: root
+    password: 76#Ht67
+    url: jdbc:mysql://121.43.148.120:3306/mall_test?useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+server:
+  port: 8088
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
