@@ -1,3 +1,3 @@
-# mall-dis-01
+# mall-jing
 
 mall项目学习之用
