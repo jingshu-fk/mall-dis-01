@@ -1,3 +1,5 @@
 # mall-jing
 
-mall项目学习之用
+
+1、基本骨架以及swagger
+2、结合redis
