@@ -1,7 +1,7 @@
 package com.mall.dis.service.impl;
 
-import com.mall.dis.common.CommonResult;
-import com.mall.dis.common.RedisUtils;
+import com.mall.dis.common.api.CommonResult;
+import com.mall.dis.common.utils.RedisUtils;
 import com.mall.dis.service.UmsMemberService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;

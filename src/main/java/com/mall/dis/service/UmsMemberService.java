@@ -1,6 +1,6 @@
 package com.mall.dis.service;
 
-import com.mall.dis.common.CommonResult;
+import com.mall.dis.common.api.CommonResult;
 
 /**
  * 会员管理Service

@@ -1,4 +1,4 @@
-package com.mall.dis.common;
+package com.mall.dis.common.api;
 
 public class CommonResult<T> {
     private int code;

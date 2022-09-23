@@ -1,4 +1,6 @@
-package com.mall.dis.common;
+package com.mall.dis.common.api;
+
+import com.mall.dis.common.api.IErrorCode;
 
 /**
  * @author hc

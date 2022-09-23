@@ -1,6 +1,6 @@
 package com.mall.dis.controller;
 
-import com.mall.dis.common.CommonResult;
+import com.mall.dis.common.api.CommonResult;
 import com.mall.dis.entity.PmsBrand;
 import com.mall.dis.service.PmsBrandService;
 import io.swagger.annotations.Api;

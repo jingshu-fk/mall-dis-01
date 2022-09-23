@@ -28,9 +28,6 @@ public class PmsBrand {
     @TableField("name")
     private String name;
 
-    /**
-     * 首字母
-     */
     @TableField("first_letter")
     @ApiModelProperty(value = "首字母")
     private String firstLetter;

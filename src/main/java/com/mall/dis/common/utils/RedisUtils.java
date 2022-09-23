@@ -1,4 +1,4 @@
-package com.mall.dis.common;
+package com.mall.dis.common.utils;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

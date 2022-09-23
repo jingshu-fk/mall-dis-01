@@ -1,6 +1,6 @@
 package com.mall.dis.controller;
 
-import com.mall.dis.common.CommonResult;
+import com.mall.dis.common.api.CommonResult;
 import com.mall.dis.service.UmsMemberService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
