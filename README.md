@@ -1,4 +1,5 @@
-# mall-dis-01
+# mall-jing
 
 
-基本骨架以及结合swagger
+1、基本骨架以及swagger
+2、结合redis
