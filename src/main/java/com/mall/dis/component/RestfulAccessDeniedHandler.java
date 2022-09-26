@@ -10,6 +10,7 @@ import cn.hutool.json.JSONUtil;
 import com.mall.dis.common.api.CommonResult;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +24,7 @@ import java.io.IOException;
  * &#064;date  2022/9/24 16:06
  * @version 1.0
  */
+@Component
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request,

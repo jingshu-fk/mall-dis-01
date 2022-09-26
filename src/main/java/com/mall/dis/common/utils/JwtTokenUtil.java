@@ -82,20 +82,13 @@ public class JwtTokenUtil {
      */
     public boolean validateToken(String token, UserDetails userDetails) {
         String username = getUserNameFromToken(token);
-        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        return username.equals(userDetails.getUsername()) && isTokenExpired(token);
 
     }
 
     public boolean isTokenExpired(String token) {
-        /**
-         * @description 验证token是否已经失效
-         * @param token
-         * @return boolean
-         * @date 2022/9/24 15:41
-         * @author shujingping
-         */
         Date expiredDate = getExpiredDateFromToken(token);
-        return expiredDate.before(new Date());
+        return !expiredDate.before(new Date());
     }
 
     public Date getExpiredDateFromToken(String token) {
@@ -132,7 +125,7 @@ public class JwtTokenUtil {
          * @date 2022/9/24 15:54
          * @author shujingping
          */
-        return !isTokenExpired(token);
+        return isTokenExpired(token);
     }
 
     public String refreshToken(String token) {
