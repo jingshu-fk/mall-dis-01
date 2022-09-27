@@ -8,6 +8,7 @@ package com.mall.dis.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.mall.dis.entity.UmsPermission;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * UmsPermissionMapper
@@ -16,6 +17,7 @@ import com.mall.dis.entity.UmsPermission;
  * @date 2022/9/26 21:46
  * @version 1.0
  */
+@Mapper
 public interface UmsPermissionMapper extends BaseMapper<UmsPermission> {
 
 }

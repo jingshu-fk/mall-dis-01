@@ -18,11 +18,12 @@ import java.util.List;
  * @date 2022/9/26 21:29
  * @version 1.0
  */
+
 public interface UmsAdminService {
     /**
      * 根据用户名获取后台管理员
      */
-    UmsAdmin getAdminBymUsername(String username);
+    UmsAdmin getAdminByUsername(String username);
 
     /**
      * 注册功能

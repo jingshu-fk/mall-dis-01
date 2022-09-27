@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -29,12 +30,14 @@ public class PmsBrandController {
 
     @GetMapping("/listAll")
     @ApiOperation("获取所有品牌列表")
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     public CommonResult getBrandList() {
         return CommonResult.success(demoService.listAllBrand());
     }
 
     @PostMapping("/create")
     @ApiOperation("添加品牌")
+    @PreAuthorize("hasAnyAuthority('pms:brand:create')")
     public CommonResult createBrand(@RequestBody PmsBrand pmsBrand) {
         int count = demoService.createBrand(pmsBrand);
         if (count > 0) {
@@ -48,6 +51,7 @@ public class PmsBrandController {
 
     @PutMapping("/update/{id}")
     @ApiOperation("更新指定id品牌信息")
+    @PreAuthorize("hasAnyAuthority('pms:brand:update')")
     public CommonResult updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand pmsBrand) {
         int count = demoService.updateBrand(id, pmsBrand);
         if (count == 1) {

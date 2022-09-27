@@ -8,7 +8,7 @@ package com.mall.dis.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.mall.dis.entity.UmsAdminRoleRelation;
-import org.mapstruct.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * UmsAdminRoleRelationMapper
