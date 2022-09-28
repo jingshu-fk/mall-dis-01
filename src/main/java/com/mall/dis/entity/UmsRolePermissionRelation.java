@@ -19,7 +19,6 @@ import lombok.Data;
 @ApiModel("角色权限关联表")
 @TableName("ums_role_permission_relation")
 public class UmsRolePermissionRelation {
-    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @TableId("role_id")

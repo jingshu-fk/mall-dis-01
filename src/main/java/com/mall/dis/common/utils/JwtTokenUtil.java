@@ -26,8 +26,8 @@ public class JwtTokenUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtTokenUtil.class);
     @Value("${jwt.secret}")
     private String secret;
-    @Value("${jwt.expiration")
-    private Long expiration;
+    @Value("${jwt.expiration}")
+    private String expiration;
 
     /**
      * 根据负载生成JWT的token
@@ -60,7 +60,7 @@ public class JwtTokenUtil {
      * 生成token的过期时间
      */
     private Date generateExpirationDate() {
-        return new Date(System.currentTimeMillis() + expiration * 1000);
+        return new Date(System.currentTimeMillis() + Integer.parseInt(expiration) * 1000L);
     }
 
     /**

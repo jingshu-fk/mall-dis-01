@@ -2,11 +2,12 @@ package com.mall.dis.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mall.dis.common.utils.JwtTokenUtil;
-import com.mall.dis.dto.UmsAdminRoleRelationDao;
 import com.mall.dis.mapper.UmsAdminMapper;
 import com.mall.dis.entity.UmsAdmin;
 import com.mall.dis.entity.UmsPermission;
+import com.mall.dis.mapper.UmsPermissionMapper;
 import com.mall.dis.service.UmsAdminService;
+import com.mall.dis.config.SecurityConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -17,7 +18,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Date;
@@ -33,17 +33,21 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UmsAdminServiceImpl.class);
 
     @Autowired
-    private JwtTokenUtil jwtTokenUtil;
-    @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
     @Value("${jwt.tokenHead}")
     private String tokenHead;
     @Autowired
     private UmsAdminMapper adminMapper;
 
-    private UmsAdminRoleRelationDao adminRoleRelationDao;
+    @Autowired
+    private UmsPermissionMapper umsPermissionMapper;
 
-    private UserDetailsService userDetailsService;
+    @Autowired
+    private SecurityConfig securityConfig;
 
     @Override
     public UmsAdmin getAdminByUsername(String username) {
@@ -83,7 +87,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     public String login(String username, String password) {
         String token = null;
         try {
-            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = securityConfig.userDetailsService().loadUserByUsername(username);
             if (!passwordEncoder.matches(password, userDetails.getPassword())) {
                 throw new BadCredentialsException("密码不正确");
             }
@@ -99,6 +103,8 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 
     @Override
     public List<UmsPermission> getPermissionList(Long adminId) {
-        return adminRoleRelationDao.getPermissionList(adminId);
+        QueryWrapper<UmsPermission> wrapper = new QueryWrapper<>();
+        wrapper.eq("pid", adminId);
+        return umsPermissionMapper.selectList(wrapper);
     }
 }

@@ -30,7 +30,7 @@ import java.util.Map;
  */
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/admin")
 @Api(tags = "后台用户管理")
 public class UmsAdminController {
     @Autowired
@@ -64,7 +64,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation("获取用户所有权限（包括+-权限）")
-    @RequestMapping(value = "/permission/{adminId}")
+    @GetMapping(value = "/permission/{adminId}")
     public CommonResult<List<UmsPermission>> getPermissionList(@PathVariable Long adminId) {
         List<UmsPermission> permissionList = adminService.getPermissionList(adminId);
         return CommonResult.success(permissionList);

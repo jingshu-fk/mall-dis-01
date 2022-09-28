@@ -1,9 +1,3 @@
-/**
- * @projectName mall-jing
- * @package com.mall.dis.service
- * @className com.mall.dis.service.UmsAdminService
- * @copyright Copyright 2020 Thunisoft, Inc All rights reserved.
- */
 package com.mall.dis.service;
 
 import com.mall.dis.entity.UmsAdmin;
