@@ -1,8 +1,3 @@
-/**
- * @projectName mall-jing
- * @package com.mall.dis.config
- * @className com.mall.dis.config.SecurityConfig
- */
 package com.mall.dis.config;
 
 import com.mall.dis.component.JwtAuthenticationTokenFilter;
